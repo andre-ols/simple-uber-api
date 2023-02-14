@@ -84,14 +84,3 @@ export class Route {
     this.props.points = value;
   }
 }
-
-/**
- * q: using clean architecture, where should I put the logic to validate de lat and lng?
- * a: I think it should be in the domain layer, because it is a business rule.
- * q: but the domain layer should not have any external dependency, right?
- * a: yes, but I think it is ok to have a dependency to a library that validates the lat and lng.
- * q: i dont want to have a dependency to a library that validates the lat and lng, because I want to be able to change the library in the future.
- * a: I think it is ok to have a dependency to a library that validates the lat and lng.
- * q: how to
- *
- */
