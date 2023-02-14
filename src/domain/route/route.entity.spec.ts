@@ -29,6 +29,15 @@ describe("Route Entity", () => {
         points: [{ lat: 10, lng: 11 }],
       });
     });
+
+    it('should throw an error if "startPosition" is invalid', () => {
+      const routeProps: RouteProps = {
+        title: "my route",
+        startPosition: { lat: 91, lng: 1 },
+        endPosition: { lat: 2, lng: 3 },
+      };
+      expect(() => new Route(routeProps)).toThrowError("invalid lat");
+    });
   });
 
   it("should update title", () => {
