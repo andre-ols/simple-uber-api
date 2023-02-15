@@ -1,5 +1,4 @@
 import { RouteRepositoryStub } from "../../../../test/helpers/route.repository.stub";
-import { IRouteRepository } from "../../../domain/route/route.repository";
 import { CreateRouteUseCase } from "../create-route.use-case";
 
 describe("CreateRouteUseCase", () => {
