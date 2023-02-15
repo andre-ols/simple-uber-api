@@ -22,4 +22,12 @@ export class RouteInMemoryRepository implements IRouteRepository {
 
     this.items[index] = route;
   }
+
+  async delete(id: string): Promise<void> {
+    const index = this.items.findIndex((item) => item.id === id);
+
+    if (index === -1) throw new Error("Route not found");
+
+    this.items.splice(index, 1);
+  }
 }

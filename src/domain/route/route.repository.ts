@@ -5,4 +5,5 @@ export interface IRouteRepository {
   findAll(): Promise<Route[]>;
   findOne(id: string): Promise<Route | undefined>;
   update(route: Route): Promise<void>;
+  delete(id: string): Promise<void>;
 }

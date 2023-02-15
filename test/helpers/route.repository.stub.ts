@@ -29,4 +29,6 @@ export class RouteRepositoryStub implements IRouteRepository {
   }
 
   async update(route: Route): Promise<void> {}
+
+  async delete(id: string): Promise<void> {}
 }
