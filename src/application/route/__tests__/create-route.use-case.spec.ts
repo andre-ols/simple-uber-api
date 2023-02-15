@@ -4,6 +4,7 @@ import { CreateRouteUseCase } from "../create-route.use-case";
 const mockRepository: jest.Mocked<IRouteRepository> = {
   findAll: jest.fn(),
   insert: jest.fn(),
+  findOne: jest.fn(),
 };
 
 describe("CreateRouteUseCase", () => {

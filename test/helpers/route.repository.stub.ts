@@ -7,4 +7,8 @@ export class RouteRepositoryStub implements IRouteRepository {
   async findAll(): Promise<Route[]> {
     return [];
   }
+
+  async findOne(id: string): Promise<Route | undefined> {
+    return undefined;
+  }
 }

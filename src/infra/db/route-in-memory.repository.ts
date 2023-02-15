@@ -10,4 +10,8 @@ export class RouteInMemoryRepository implements IRouteRepository {
   async findAll(): Promise<Route[]> {
     return this.items;
   }
+
+  async findOne(id: string): Promise<Route | undefined> {
+    return this.items.find((item) => item.id === id);
+  }
 }
