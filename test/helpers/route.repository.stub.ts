@@ -9,7 +9,23 @@ export class RouteRepositoryStub implements IRouteRepository {
   }
 
   async findOne(id: string): Promise<Route | undefined> {
-    return undefined;
+    const route = new Route(
+      {
+        endPosition: {
+          lat: 0,
+          lng: 0,
+        },
+        startPosition: {
+          lat: 0,
+          lng: 0,
+        },
+        title: "title",
+        points: [],
+      },
+      id
+    );
+
+    return route;
   }
 
   async update(route: Route): Promise<void> {}

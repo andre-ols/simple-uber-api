@@ -6,6 +6,7 @@ describe("FindOneRouteUseCase", () => {
     // arrange
     const repository = new RouteRepositoryStub();
     const useCase = new FindOneRouteUseCase(repository);
+    const route = await repository.findOne("1");
     const findOneSpy = jest.spyOn(repository, "findOne");
 
     // act
@@ -13,6 +14,7 @@ describe("FindOneRouteUseCase", () => {
 
     // assert
     expect(findOneSpy).toBeCalledTimes(1);
-    expect(output).not.toBeDefined();
+    expect(findOneSpy).toBeCalledWith("1");
+    expect(output).toStrictEqual(route?.toJSON());
   });
 });
