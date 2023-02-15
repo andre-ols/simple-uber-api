@@ -1,16 +1,13 @@
+import { RouteRepositoryStub } from "../../../../test/helpers/route.repository.stub";
 import { IRouteRepository } from "../../../domain/route/route.repository";
 import { CreateRouteUseCase } from "../create-route.use-case";
-
-const mockRepository: jest.Mocked<IRouteRepository> = {
-  findAll: jest.fn(),
-  insert: jest.fn(),
-  findOne: jest.fn(),
-};
 
 describe("CreateRouteUseCase", () => {
   it("should create a new route", async () => {
     // arrange
-    const createUseCase = new CreateRouteUseCase(mockRepository);
+    const repository = new RouteRepositoryStub();
+    const createUseCase = new CreateRouteUseCase(repository);
+    const insertSpy = jest.spyOn(repository, "insert");
     const input = {
       title: "my title",
       startPosition: { lat: 1, lng: 2 },
@@ -21,8 +18,8 @@ describe("CreateRouteUseCase", () => {
     const output = await createUseCase.execute(input);
 
     // assert
-    expect(mockRepository.insert).toBeCalledTimes(1);
-    expect(mockRepository.insert).toBeCalledWith(
+    expect(insertSpy).toBeCalledTimes(1);
+    expect(insertSpy).toBeCalledWith(
       expect.objectContaining({
         id: expect.any(String),
         title: input.title,
