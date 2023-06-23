@@ -15,10 +15,24 @@ This is a NodeJs project that provides an API to create routes for Uber-like app
 
 ## Installation
 
-1. Clone the repository
-
 ```bash
-git clone
+git clone https://github.com/andre-ols/simple-uber-api.git
 
 pnpm install
 ```
+
+## Usage
+
+1. Run the application
+
+```bash
+pnpm express
+```
+
+2. Run the tests
+
+```bash
+pnpm test
+```
+
+
